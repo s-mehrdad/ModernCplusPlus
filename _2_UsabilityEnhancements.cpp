@@ -4,7 +4,7 @@
 /// _1_Introduction.cpp
 /// </summary>
 /// <created>ʆϒʅ,27.11.2019</created>
-/// <changed>ʆϒʅ,27.11.2019</changed>
+/// <changed>ʆϒʅ,28.11.2019</changed>
 // --------------------------------------------------------------------------------
 
 #include "pch.h"
@@ -15,7 +15,7 @@
 #define Nline '\n'
 
 
-void _01_01_LanguageUsabilityEnhancements ()
+void _02_01_LanguageUsabilityEnhancements ()
 {
   try
   {
@@ -52,7 +52,7 @@ constexpr int len_function_constexpr ( const int& n )
   else
     return n;
 }
-void _01_02_Constants ()
+void _02_02_Constants ()
 {
   try
   {
@@ -97,14 +97,80 @@ void _01_02_Constants ()
 }
 
 
-void _01_03_VariablesAndInitialization ()
+void _02_03_VariablesAndInitialization ()
 {
   try
   {
     //! ####################################################################
     //! ----- variables and initialization:
-    // 
     ColourCouter ( "----- Variables and initialization:\n", F_bWHITE );
+
+    //! if-switch
+    // traditional C++ lacks the support for declarations within the if and switch statements,
+    // for which C++ 17 provides the needed concepts to eliminate this limitation.
+    ColourCouter ( "Declarations within the control statements if and switch are possible.\n\n", F_YELLOW );
+    std::vector<char> container = { '|', ':', ')' };
+    if (
+      std::vector<char>::iterator entity = std::find ( container.begin (), container.end (), ':' );
+      entity != container.end ()
+      )
+    {
+      std::cout << *entity << *(entity - 1) << Nline << Nline;
+    }
+
+    //! initializer list
+    // to declare and initialize an object of a class using uniform initialization method,
+    // C++ binds the concepts of initialization list to the type and wraps it under std::initializer_list container.
+    // note that this method is additionally usable with normal functions.
+    ColourCouter ( "It is possible to use initializer lists when instantiating an object.\n\n", F_YELLOW );
+    class SomeType
+    {
+    public:
+      std::vector<char> container;
+      std::string character;
+      SomeType ( std::initializer_list<char> input )
+      {
+        for (std::initializer_list<char>::iterator entity = input.begin (); entity != input.end (); entity++)
+        {
+          if (*entity == ':')
+            character = *entity;
+          else
+            container.push_back ( *entity );
+        }
+      }
+    };
+    SomeType theObject { '|', ':', ')' };
+    for (short i = 0; i < theObject.container.size (); i++)
+    {
+      std::cout << theObject.character << theObject.container [i] << Tab;
+    }
+    std::cout << Nline << Nline;
+
+    //! structured binding
+    // to enclose multiple type bound together and wrapped as a container, C++ provides std::tuple,
+    // consumable as function parameters and while its usefulness is clear, the procedure in C++ 11/14 are troublesome:
+    //-- there is no simple direct way to define and get the elements from tuple itself
+    //-- despite unpack feasibility through std::tie, the developer must be very clear about number of objects and their types.
+    // C++ 17 builds upon this container to bring about the possibility to leverage its power.
+    ColourCouter ( "To introduce different objects bound together as an entity.\n\n", F_YELLOW );
+    auto [a, b, c] = std::tuple<int, float, char> ( std::make_tuple ( 1, .2f, 'c' ) );
+    std::cout << a << Tab << b << Tab << c << Tab << Nline << Nline;
+  }
+  catch (const std::exception&)
+  {
+
+  }
+}
+
+
+void _02_04_TypeInference ()
+{
+  try
+  {
+    //! ####################################################################
+    //! ~~~~~ type inference:
+    // 
+    ColourCouter ( "~~~~~ Type inference:\n", F_bWHITE );
     ColourCouter ( ".\n\n", F_YELLOW );
 
 

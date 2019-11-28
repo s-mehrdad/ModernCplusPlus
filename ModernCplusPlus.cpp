@@ -10,7 +10,7 @@
 /// In the source code encountered in mind foreseen as future todos can be seen as such tasks that encourage the nerd community... :|
 /// </summary>
 /// <created>ʆϒʅ,27.11.2019</created>
-/// <changed>ʆϒʅ,27.11.2019</changed>
+/// <changed>ʆϒʅ,28.11.2019</changed>
 // --------------------------------------------------------------------------------
 
 #include "pch.h"
@@ -91,9 +91,10 @@ int main ()
     ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED );
     ColourCouter ( ".:: LANGUAGE USABILITY ENHANCEMENTS ::.\n", F_CYAN );
 
-    _01_01_LanguageUsabilityEnhancements ();
-    _01_02_Constants ();
-    _01_03_VariablesAndInitialization ();
+    _02_01_LanguageUsabilityEnhancements ();
+    _02_02_Constants ();
+    _02_03_VariablesAndInitialization ();
+    _02_04_TypeInference ();
 
     ColourCouter ( " +++++++++++++++++++++++++++++++++++++++++++++++++", F_bRED );
     ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED );
