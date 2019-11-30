@@ -10,7 +10,7 @@
 /// In the source code encountered in mind foreseen as future todos can be seen as such tasks that encourage the nerd community... :|
 /// </summary>
 /// <created>ʆϒʅ,27.11.2019</created>
-/// <changed>ʆϒʅ,28.11.2019</changed>
+/// <changed>ʆϒʅ,30.11.2019</changed>
 // --------------------------------------------------------------------------------
 
 #include "pch.h"
@@ -95,6 +95,7 @@ int main ()
     _02_02_Constants ();
     _02_03_VariablesAndInitialization ();
     _02_04_TypeInference ();
+    _02_05_ControlFlow ();
 
     ColourCouter ( " +++++++++++++++++++++++++++++++++++++++++++++++++", F_bRED );
     ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED );
