@@ -4,7 +4,7 @@
 /// _1_Introduction.cpp
 /// </summary>
 /// <created>ʆϒʅ,27.11.2019</created>
-/// <changed>ʆϒʅ,30.11.2019</changed>
+/// <changed>ʆϒʅ,03.11.2019</changed>
 // --------------------------------------------------------------------------------
 
 #include "pch.h"
@@ -257,6 +257,14 @@ void _02_04_TypeInference ()
 }
 
 
+template<typename tType>
+const auto& evaluation ( const tType& input )
+{
+  if constexpr (std::is_signed_v<tType>)
+    return "Negative";
+  else
+    return "Positive";
+}
 void _02_05_ControlFlow ()
 {
   try
@@ -267,15 +275,110 @@ void _02_05_ControlFlow ()
     ColourCouter ( "----- Control flow:\n", F_bWHITE );
     ColourCouter ( "To some extend modern C++ expands the features of statement and flow control.\n\n", F_YELLOW );
 
-    //! ---
-    //
-    ColourCouter ( ".\n\n", F_YELLOW );
+    //! --- if constexpr
+    // from C++17 the condition of a constant expression can be declared using if statement,
+    // which results to efficiency considering that the compilation of branch judgement happens at compile time.
+    ColourCouter ( "Using if constexpr, it is possible to evaluate constant expressions at compile time.\n\n", F_YELLOW );
+    std::cout << evaluation ( -3 ) << Nline << Nline;
 
+    //! --- range-based for loop
+    // modern C++ introduces range-based iterative method, resulting to code containing concise loops.
+    ColourCouter ( "To iterate more concise, modern C++ interposes range-based loops.\n\n", F_YELLOW );
+    std::vector<char> container = { 'a', 'b', 'c' };
+    if (
+      auto entity = std::find ( container.begin (), container.end (), 'd' );
+      entity == container.end ()
+      )
+    {
+      container.push_back ( 'd' );
+    }
+    for (auto& entity : container) // read/write privilege
+    {
+      std::cout << entity << Tab;
+      entity -= 32;
+    }
+    std::cout << Nline;
+    for (auto entity : container) // read privilege
+    {
+      std::cout << entity << Tab;
+    }
+    std::cout << Nline << Nline;
+  }
+  catch (const std::exception&)
+  {
+
+  }
+}
+
+
+template<typename typeOne, typename typeTwo>
+class tempType
+{
+public:
+  typeOne one;
+  typeTwo two;
+};
+template<typename typeOne>
+using alias = tempType<std::vector<typeOne>, std::string>;
+void _02_06_Templates ()
+{
+  try
+  {
+    //! ####################################################################
+    //! ----- templates:
+    // the known black magic of C++ language has been expanded with new features in moderner versions.
+    ColourCouter ( "----- Templates:\n", F_bWHITE );
+    ColourCouter ( "In modern C++ templates and generic codes are even more elaborated.\n\n", F_YELLOW );
+
+    //! --- extern templates
+    // the conventional way in traditional C++ is to instantiate each defined template code
+    // in the instance it is encountered by compiler, which results to increased compile time if instantiations are repeated.
+    // interposing extern keyword, C++11 extends the templates definition syntax,
+    // which manipulates the original compiler behaviour,
+    // providing the ability to explicitly decide where and when to instantiate the defined template.
+    ColourCouter ( "Modern C++ introduces the possibility to enforce template instantiations.\n\n", F_YELLOW );
+
+    // to force instantiation in a compilation unit:
+    //template class std::vector<int>;
+
+    // to prevent instantiation in a compilation unit:
+    // note that the same instantiation must have already been encountered by compiler
+    // in another object file in connection with current compilation unit
+    //extern temlate class std::vector<int>;
+
+    //! --- continuous right angle brackets
+    // concerning templates definitions, modern C++ treat continuous right angle brackets correctly.
+    // in traditional C++  two of the were accepted an compiled to right shift operator.
+    ColourCouter ( "In modern C++ complex templates can be compiled.\n\n", F_YELLOW );
+    std::vector<std::vector<int>> _2D_array; // a not-compilable expression in traditional c++
+    for (int i = 0; i < 3; i++)
+    {
+      _2D_array.push_back ( { i, i } );
+    }
+    for (auto entity : _2D_array)
+    {
+      for (auto element : entity)
+      {
+        std::cout << element << Tab;
+      }
+      std::cout << Nline;
+    }
+    std::cout << Nline;
+
+    //! --- template type alias
+    // in modern C++ using keyword can be used to introduces aliases for template types.
+    ColourCouter ( "The keyword using aliases template types likewise.\n\n", F_YELLOW );
+    alias<int> test;
+    test.one.push_back ( 1 );
+    test.two = " is odd.";
+    std::cout << test.one.front () << test.two << Nline << Nline;
 
 
     //ColourCouter ( "\n", F_bYELLOW );
     //ColourCouter ( "\n", F_bCYAN );
     //! - in addition:
+
+
   }
   catch (const std::exception&)
   {

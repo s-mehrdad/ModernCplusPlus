@@ -91,11 +91,12 @@ int main ()
     ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED );
     ColourCouter ( ".:: LANGUAGE USABILITY ENHANCEMENTS ::.\n", F_CYAN );
 
-    _02_01_LanguageUsabilityEnhancements ();
-    _02_02_Constants ();
-    _02_03_VariablesAndInitialization ();
-    _02_04_TypeInference ();
+    //_02_01_LanguageUsabilityEnhancements ();
+    //_02_02_Constants ();
+    //_02_03_VariablesAndInitialization ();
+    //_02_04_TypeInference ();
     _02_05_ControlFlow ();
+    _02_06_Templates ();
 
     ColourCouter ( " +++++++++++++++++++++++++++++++++++++++++++++++++", F_bRED );
     ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED );
