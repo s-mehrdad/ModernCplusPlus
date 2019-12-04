@@ -4,7 +4,7 @@
 /// _1_Introduction.cpp
 /// </summary>
 /// <created>ʆϒʅ,27.11.2019</created>
-/// <changed>ʆϒʅ,03.11.2019</changed>
+/// <changed>ʆϒʅ,04.12.2019</changed>
 // --------------------------------------------------------------------------------
 
 #include "pch.h"
@@ -320,6 +320,76 @@ public:
 };
 template<typename typeOne>
 using alias = tempType<std::vector<typeOne>, std::string>;
+
+template<typename tTypeA = int, typename tTypeB = float>
+auto addition ( tTypeA a, tTypeB b )
+{
+  return a + b;
+}
+
+template<typename... tTypeInfinite> // zero to an infinite number template paramters
+class infinite_A {};
+template<typename tTypeRequired, typename... tTypeOthers> // at least one template parameter
+class infinite_B {};
+
+// method: recursive template function: recursively traverse all template parameters
+template<typename tTemp>
+void unpack_rec ( tTemp arg )
+{
+  std::cout << arg << Nline;
+};
+template<typename tTypeReq, typename... tTypeArgs>
+void unpack_rec ( tTypeReq arg, tTypeArgs... elements )
+{
+  std::cout << arg << Tab;
+  unpack_rec ( elements... );
+};
+// method: variable parameter template expansion: recursive in one function (from C++17)
+template<typename tTypeReq, typename... tTypeArgs>
+void unpack_prmE ( tTypeReq arg, tTypeArgs... elements )
+{
+  std::cout << arg << Tab;
+  if constexpr (sizeof...(elements) > 0)
+    unpack_prmE ( elements... );
+  else
+    std::cout << Nline;
+};
+// method: initialize list expansion: using the features provided by Lambada expressions
+template<typename tTypeReq, typename... tTypeArgs>
+void unpack_initialE ( tTypeReq arg, tTypeArgs... elements )
+{
+  std::cout << arg << Tab;
+
+  // after list initialization, the expansion of Lambada expression happens,
+  // and the comma operator initiates the execution of preceding expression first,
+  // through which the output is complete.
+  // note that the explicit conversion to void is to avoid compiler warnings
+  // note try debugging the lines to watch the algorithm behaviour step by step.
+  (void) std::initializer_list<tTypeReq>
+  {
+    // (Lambada expression, arg)
+    ([&elements] { std::cout << elements << Tab; }(), arg)...
+  };
+
+  std::cout << Nline << Nline;
+};
+
+template<typename... tTempType>
+auto multiplyThePack ( tTempType... input )
+{
+  return (input * ...);
+};
+
+template<int number, typename T>
+void printOne ( T text )
+{
+  std::cout << text << Tab << number << Nline;
+};
+template<auto input>
+void printTwo ( const std::string& text )
+{
+  std::cout << text << Tab << input << Nline;
+};
 void _02_06_Templates ()
 {
   try
@@ -373,12 +443,69 @@ void _02_06_Templates ()
     test.two = " is odd.";
     std::cout << test.one.front () << test.two << Nline << Nline;
 
+    //! --- default template parameters
+    // to prevent the constant need to specify the template type at the moment of each instantiation,
+    // C++11 provide the ability to define default parameters of a template type.
+    ColourCouter ( "Templates can introduce their default template parameters.\n\n", F_YELLOW );
+    std::cout << addition ( 1, .1f ) << Nline << Nline;
+
+    //! --- variadic templates
+    // modern C++ provides the concept of templates with an infinite number of template parameters of any category
+    // as a pack without the need to specify the number of parameters at definition time.
+    // note syntax template<typename... tName> class class_name;
+    // this template class can accept zero to infinite number of template parameters without restriction.
+    ColourCouter ( "Templates can be introduced with an infinite number of parameters.\n\n", F_YELLOW );
+    infinite_A<> testOne; // zero template parameters
+    infinite_B<short, int, float, double> testTwo; // four template parameters
+
+    infinite_B<int> testThree; // at least one template parameter
+
+    //! - in addition:
+    // there are different methods to unpack the template parameter pack
+    //--- the number of arguments is determined by sizeof...() operator
+    // note pay close attention to the use of infinite number operator (...)
+    unpack_rec ( "Method: recursive template function\t", 1, 2, 3.3 );
+    unpack_prmE ( "Method: variable parameter template expansion", 1, 2, 3.3 ); // (from C++17)
+    unpack_initialE ( "Method: initialize list expansion\t", 1, 2, 3.3 );
+
+    //! - research: using std::bind to forward and bind the template parameters
+
+    //! --- fold expression
+    // from C++ 17, packed template parameters can additionally be expanded and used in simple expressions.
+    ColourCouter ( "Expression can harness the features provided through packed template parameters.\n\n", F_YELLOW );
+    std::cout << multiplyThePack ( 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 ) << Nline << Nline;
+
+    //! --- not-type template parameter deduction
+    // modern C++ makes type deduction even in template parameters possible
+    // and in C++17 the more elaborated version of this feature is introduced to further simplify the process
+    // by using the auto keyword and not providing the exact type of template parameter.
+    ColourCouter ( "Template parameters types can be deduced.\n\n", F_YELLOW );
+    printOne<1> ( "Not using auto keyword:" );
+    printTwo<1> ( "Using auto keyword:" ); // from C++17
+    std::cout << Nline;
+  }
+  catch (const std::exception&)
+  {
+
+  }
+}
+
+
+void _02_07_ObjectOriented ()
+{
+  try
+  {
+    //! ####################################################################
+    //! ----- object-oriented:
+    // 
+    ColourCouter ( "----- Object-oriented:\n", F_bWHITE );
+    ColourCouter ( ".\n\n", F_YELLOW );
+
+
 
     //ColourCouter ( "\n", F_bYELLOW );
     //ColourCouter ( "\n", F_bCYAN );
     //! - in addition:
-
-
   }
   catch (const std::exception&)
   {
