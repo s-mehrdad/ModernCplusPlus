@@ -4,7 +4,7 @@
 /// _1_Introduction.cpp
 /// </summary>
 /// <created>ʆϒʅ,27.11.2019</created>
-/// <changed>ʆϒʅ,04.12.2019</changed>
+/// <changed>ʆϒʅ,06.12.2019</changed>
 // --------------------------------------------------------------------------------
 
 #include "pch.h"
@@ -491,21 +491,84 @@ void _02_06_Templates ()
 }
 
 
+class delegate
+{
+private:
+  int entity;
+public:
+  delegate () : entity ( 3 ) {};
+  delegate ( int input ) : delegate ()
+  {
+    for (int i = 0; i < entity; i++)
+      input *= input;
+    entity = input;
+  };
+  int getResult () { return entity; };
+};
+class inherited : public delegate
+{
+public:
+  using delegate::delegate; // inherit constructors of base class
+};
+class Base
+{
+private:
+public:
+  virtual void toOverload () {};
+  virtual void notToOverload () final {}; // final: overloading not possible
+};
+class Subclass final : public Base // final: no further inheritance is possible
+{
+private:
+public:
+  void toOverload () override {}; // legal: virtual function exists
+  //void toOverload ( int a ) override {}; // illegal: no virtual function exists
+  //void notToOverload () {}; // illegal: final
+};
+//class SubTwo : public Subclass // illegal: final
+//{
+//private:
+//public:
+//};
 void _02_07_ObjectOriented ()
 {
   try
   {
     //! ####################################################################
     //! ----- object-oriented:
-    // 
+    // as development of C++ language steps forward, the concepts of OOP becomes more elaborated.
     ColourCouter ( "----- Object-oriented:\n", F_bWHITE );
-    ColourCouter ( ".\n\n", F_YELLOW );
+    ColourCouter ( "C++ language as an object-oriented programming language is in constant expansion.\n\n", F_YELLOW );
 
+    //! --- delegate constructor
+    // for convenient and simplicity sake, C++11 equips the concept of classes with delegate constructor,
+    // to which a call from the constructor of the class is to undertake.
+    ColourCouter ( "A class constructor can call other constructors of the class as its delegate.\n\n", F_YELLOW );
+    delegate one ( 2 );
+    std::cout << "The result is:" << Tab << one.getResult () << Nline << Nline;
 
+    //! --- inheritance constructor
+    // using the using keyword,
+    // modern C++ (from C++11) expands the concepts of inheritance between classes even to their constructors further,
+    // thus cutting on efficiency issues, when passing arguments to constructors of a base class.
+    ColourCouter ( "In modern C++ the constructors of a base class can be inherited.\n\n", F_YELLOW );
+    inherited subOne ( 2 );
+    std::cout << "The result is:" << Tab << subOne.getResult () << Nline << Nline;
 
-    //ColourCouter ( "\n", F_bYELLOW );
-    //ColourCouter ( "\n", F_bCYAN );
-    //! - in addition:
+    //! --- explicit virtual function overwrite
+    // accidental overloading or not overloading virtual functions by programmer,
+    // either reasoned through the wish of having two functions with the same name,
+    // or a deleted virtual function inherited and not overloaded because of the ownership over the deleted version,
+    // are catastrophic, for which to overcome C++11 introduces the keywords override and final.
+
+    //! the keyword override
+    // preceded by overload's declaration, explicitly tells the compiler to overload,
+    // resulting to no compilation if virtual function doesn't exist.
+
+    //! the keyword final
+    // preceded by virtual function's declaration, explicitly makes the overload process impossible.
+    // preceded by class's declaration, explicitly breaks the inheritance feature there of.
+    ColourCouter ( "Ownership over virtual functions can be explicitly controlled.\n\n", F_YELLOW );
   }
   catch (const std::exception&)
   {
