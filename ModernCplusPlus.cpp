@@ -105,7 +105,8 @@ int main ()
     ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED );
     ColourCouter ( ".:: LANGUAGE RUNTIME ENHANCEMENTS ::.\n", F_CYAN );
 
-    _03_01_ ();
+    _03_01_LanguageRuntimeEnhancements ();
+    _03_02_LambadaExpressions ();
 
     ColourCouter ( " +++++++++++++++++++++++++++++++++++++++++++++++++", F_bRED );
     ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED );

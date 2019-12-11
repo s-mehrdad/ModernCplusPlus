@@ -4,7 +4,7 @@
 /// _1_Introduction.cpp
 /// </summary>
 /// <created>ʆϒʅ,27.11.2019</created>
-/// <changed>ʆϒʅ,06.12.2019</changed>
+/// <changed>ʆϒʅ,08.12.2019</changed>
 // --------------------------------------------------------------------------------
 
 #include "pch.h"
@@ -24,13 +24,13 @@ void _02_01_LanguageUsabilityEnhancements ()
 
     //! ####################################################################
     //! ~~~~~ language usability enhancements:
-    // the very same procedure of bringing an algorithm while using the concepts of a programming language,
+    // the very same procedure of constructing an algorithm while using the concepts of a programming language,
     // such as declaration, definition of variables, constants, etc. program flow control, object-oriented paradigms,
     // implemented abstracts with the use of templates, concluding this sentence and using other words,
     // whatever occurred before the runtime at the coding or compiling stages is known as language usability,
     // which summarizes the language behaviour at these stages.
     ColourCouter ( "~~~~~ Language usability enhancements:\n", F_bWHITE );
-    ColourCouter ( "Language usability wraps the way in which a language represents the algorithm on a program.\n\n", F_YELLOW );
+    ColourCouter ( "Language usability wraps the way in which a language represents the algorithm of a program.\n\n", F_YELLOW );
   }
   catch (const std::exception&)
   {
@@ -461,9 +461,9 @@ void _02_06_Templates ()
     infinite_B<int> testThree; // at least one template parameter
 
     //! - in addition:
-    // there are different methods to unpack the template parameter pack
+    // there are different methods to unpack the template parameter expansion pack
     //--- the number of arguments is determined by sizeof...() operator
-    // note pay close attention to the use of infinite number operator (...)
+    // note pay close attention to the use of ellipsis operator (...)
     unpack_rec ( "Method: recursive template function\t", 1, 2, 3.3 );
     unpack_prmE ( "Method: variable parameter template expansion", 1, 2, 3.3 ); // (from C++17)
     unpack_initialE ( "Method: initialize list expansion\t", 1, 2, 3.3 );
