@@ -4,7 +4,7 @@
 /// _1_Introduction.cpp
 /// </summary>
 /// <created>ʆϒʅ,06.12.2019</created>
-/// <changed>ʆϒʅ,12.12.2019</changed>
+/// <changed>ʆϒʅ,14.12.2019</changed>
 // --------------------------------------------------------------------------------
 
 #include "pch.h"
@@ -29,12 +29,6 @@ void _03_01_LanguageRuntimeEnhancements ()
     // and the whole of all the concepts that extends it comes in the following.
     ColourCouter ( "~~~~~ Language runtime enhancements:\n", F_bWHITE );
     ColourCouter ( "Language runtime represents all the features that effectively affect the performance of a program.\n\n", F_YELLOW );
-
-
-
-    //ColourCouter ( "\n", F_bYELLOW );
-    //ColourCouter ( "\n", F_bCYAN );
-    //! - in addition:
   }
   catch (const std::exception&)
   {
@@ -50,7 +44,7 @@ void _03_02_LambadaExpressions ()
     //! ####################################################################
     //! ----- lambada expressions:
     // in modern C++ provided gate to anonymous function objects (closures), a very important feature,
-    // concept by need to introduce functions without names, supported by many scenarios,
+    // is concept by need to introduce functions without names and is supported by many scenarios,
     // in them their presence is now almost a standard in modern programming languages.
     // the feature typically encapsulates a few lines, invoked or passed to algorithms or asynchronous methods.
     ColourCouter ( "----- Lambada expressions:\n", F_bWHITE );
@@ -77,9 +71,8 @@ void _03_02_LambadaExpressions ()
 
     //! parameter list
     // optional parameter list specification, additionally known as lambada declarator,
-    // resembles parameter list of a function,
-    // thus giving the possibility to introduce input parameters even generic ones,
-    // when the type of the parameter is deducted using 'auto' keyword.
+    // resembles parameter list of a function, thus the possibility is provided to introduce input parameters
+    // to the extend of generic ones and deduction of their types by using 'auto' keyword.
     // note that empty parenthesis can be omitted,
     // if lambada expression doesn't contain exception-specification, trailing-return-type or mutable
 
@@ -126,16 +119,102 @@ void _03_02_LambadaExpressions ()
     std::cout << Nline << Nline;
 
     auto number = std::make_unique<int> ( 5 );
-    auto sum = [=, count = std::move ( number )] // an anonymous function which captures by expression
+    auto sum = [=, count = std::move ( number )] ( auto calc ) // an anonymous function which captures by expression
     {
-      int temp { 0 };
+      auto [sum, sign] = std::tuple<int, std::string> ( std::make_tuple ( 0, "" ) );
       for (auto i = 0; i < *count; i++)
       {
-        temp += test [i];
+        sum += test [i];
       }
-      return temp;
+      if (calc)
+        if (sum % 2 == 0)
+          sign = "even";
+        else
+          sign = "odd";
+      return std::make_tuple ( sum, sign );
     };
-    std::cout << "The sum of elements is:" << Tab << sum () << Nline << Nline;
+    auto [tempA, tempB] = std::tuple<int, std::string> ( sum ( true ) );
+    std::cout << "The sum of elements is:" << Tab << tempA << Tab << "which is " << tempB << Nline << Nline;
+  }
+  catch (const std::exception&)
+  {
+
+  }
+}
+
+
+using ptr = void ( int ); // function pointer
+void caller ( ptr toCall ) { toCall ( 2 ); }
+
+int aFunction ( int input ) { return input + 1; }
+
+int theFunction ( int a, int b, int c ) { return a + b + c; }
+void _03_03_FunctionObjectWrapper ()
+{
+  try
+  {
+    //! ####################################################################
+    //! ----- function object wrapper: 
+    // modern C++ language is able to encapsulate function objects to enhance runtime capabilities.
+    ColourCouter ( "----- Function object wrapper:\n", F_bWHITE );
+    ColourCouter ( "C++ standard features to safely wrap function objects.\n\n", F_YELLOW );
+
+    //! --- introduction
+    // since a lambada expression (an object of class type known as closure type) is essentially
+    // similar to a function object type (known as closure object),
+    // when one is introduced with empty capture list, it is convertible a function pointer.
+    // note that the type of objects that can be called is collectively called callable type.
+    ColourCouter ( "In C++ language, it is possible to unsafely convert a closure type.\n\n", F_YELLOW );
+    auto closure = []( int input ) { std::cout << input + 1 << Tab; };
+    closure ( 2 );
+    caller ( closure ); // unsafe call using function pointer
+    std::cout << Nline << Nline;
+
+    //! --- std::function
+    // to safely wrap the concepts of callable objects, overcoming the limits of previous approach,
+    // and in the same time being able to store, copy and call target entities there of,
+    // modern C++ introduces the generic, polymorphic function wrapper as a standardised container,
+    // which seamlessly handles functions and function pointers as objects.
+    // note the ease that the container offers while putting the drawbacks aside.
+    ColourCouter ( "Standard modern C++ container to wrap callable objects is function facility.\n\n", F_YELLOW );
+    std::function<int ( int )> testOne = aFunction; // taking one int parameter and returning an int
+    std::function<int ( int )> testTwo = [&]( int input ) { return input + 1; };
+    std::cout << testOne ( 2 ) << Tab << testTwo ( 2 ) << Nline << Nline;
+
+    //! --- std::bind and std::placeholder
+    // modern C++ offers the possibility to bind some parameters of a function in an expression
+    // combined of bind function and placeholder namespace introduced under standard C++ library.
+    // the result of the expression is then a callable safely wrapped object.
+    // placeholder namespace provides the needed functionality with which some parameters can be passed later on.
+    // note that the complex output type of bind function is circumvented using the 'auto' keyword.
+    ColourCouter ( "In modern C++, the parameters of callable objects can be wrapped and bound together in an arbitrary manner.\n\n", F_YELLOW );
+    auto boundParameters = std::bind ( theFunction, std::placeholders::_1, 3, 3 );
+    std::cout << boundParameters ( 3 ) << Nline << Nline;
+  }
+  catch (const std::exception&)
+  {
+
+  }
+}
+
+
+void _03_04_RValueReference ()
+{
+  try
+  {
+    //! ####################################################################
+    //! ----- : rvalue reference
+     // 
+    ColourCouter ( "----- rvalue reference:\n", F_bWHITE );
+    ColourCouter ( ".\n\n", F_YELLOW );
+
+
+
+
+    //ColourCouter ( "\n", F_bYELLOW );
+    //ColourCouter ( "\n", F_bCYAN );
+    //! - in addition:
+
   }
   catch (const std::exception&)
   {

@@ -4,7 +4,7 @@
 /// pch.h
 /// </summary>
 /// <created>ʆϒʅ,27.11.2019</created>
-/// <changed>ʆϒʅ,27.11.2019</changed>
+/// <changed>ʆϒʅ,13.12.2019</changed>
 // --------------------------------------------------------------------------------
 
 #ifndef PCH_H
@@ -43,5 +43,6 @@
 
 #include <algorithm> // C++ standard algorithm header
 
+#include <functional> // C++ standard functional header
 
 #endif // !PCH_H
