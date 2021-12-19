@@ -4,7 +4,7 @@
 /// _1_Introduction.cpp
 /// </summary>
 /// <created>ʆϒʅ,27.11.2019</created>
-/// <changed>ʆϒʅ,08.12.2019</changed>
+/// <changed>ʆϒʅ,19.12.2021</changed>
 // --------------------------------------------------------------------------------
 
 #include "pch.h"
@@ -25,12 +25,14 @@ void _02_01_LanguageUsabilityEnhancements ()
     //! ####################################################################
     //! ~~~~~ language usability enhancements:
     // the very same procedure of constructing an algorithm while using the concepts of a programming language,
-    // such as declaration, definition of variables, constants, etc. program flow control, object-oriented paradigms,
-    // implemented abstracts with the use of templates, concluding this sentence and using other words,
+    // such as declaration, definition of variables, constants, etc. program flow control,
+    // object-oriented paradigms,
+    // implemented abstracts with the help of templates, concluding this sentence using other words,
     // whatever occurred before the runtime at the coding or compiling stages is known as language usability,
     // which summarizes the language behaviour at these stages.
     ColourCouter ( "~~~~~ Language usability enhancements:\n", F_bWHITE );
-    ColourCouter ( "Language usability wraps the way in which a language represents the algorithm of a program.\n\n", F_YELLOW );
+    ColourCouter ( "Language usability wraps the way in which a language represents the algorithm of a "
+                   "program.\n\n", F_YELLOW );
   }
   catch (const std::exception&)
   {
@@ -43,7 +45,7 @@ constexpr int len_function_constexpr ( const int& n )
 {
   // starting from C++ 14, internal use of simple statements like local variables, loops and branches
 
-  // to nerds, from time to time have fun setting functions at eternal recursivity! :)
+  // to nerds, have fun setting functions at eternal recursivity! :)
   if (n < 3)
     return len_function_constexpr ( n + 1 );
   else if (n > 3)
@@ -77,7 +79,7 @@ void _02_02_Constants ()
     ColourCouter ( "Use constexpr to explicitly define elaborated language concepts as constant expressions.\n\n", F_YELLOW );
 
 #define len_define 3
-    const int len { len_define - 3 + 3 }; // legal for mast compilers
+    const int len { len_define - 3 + 3 }; // legal for most compilers
     constexpr int len_constexpr { 0 + 1 + 2 };
     std::string arrayOfString_1 [len] { "" };
     std::string arrayOfString_2 [len_constexpr] { "" };

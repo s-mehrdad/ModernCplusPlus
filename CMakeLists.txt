@@ -4,7 +4,7 @@
 #/
 #/ </summary>
 #/ <created>ʆϒʅ,27.11.2019</created>
-#/ <changed>ʆϒʅ,27.11.2019</changed>
+#/ <changed>ʆϒʅ,19.12.2021</changed>
 # *******************************************************************************************
 
 cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
@@ -20,6 +20,9 @@ project(${PROJECT_NAME}
   LANGUAGES CXX
   )
 
+set(CMAKE_CXX_STANDARD_REQUIRED on)
+set(CMAKE_CXX_STANDARD 20)
+
 if(MSVC)
   list(APPEND RESOURCES
     ${TARGET_NAME}.rc
@@ -30,6 +33,8 @@ endif(MSVC)
 list(APPEND HEADER_FILES
   pch.h
   _1_Introduction.h
+  _2_UsabilityEnhancements.h
+  _3_RuntimeEnhancements.h
   Console.h
   )
 
@@ -37,6 +42,8 @@ list(APPEND SOURCE_FILES
   pch.cpp
   ModernCplusPlus.cpp
   _1_Introduction.cpp
+  _2_UsabilityEnhancements.cpp
+  _3_RuntimeEnhancements.cpp
   Console.cpp
   )
 
