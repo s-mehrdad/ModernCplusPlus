@@ -4,7 +4,7 @@
 /// _1_Introduction.cpp
 /// </summary>
 /// <created>ʆϒʅ,27.11.2019</created>
-/// <changed>ʆϒʅ,19.12.2021</changed>
+/// <changed>ʆϒʅ,29.12.2021</changed>
 // --------------------------------------------------------------------------------
 
 #include "pch.h"
@@ -24,12 +24,12 @@ void _02_01_LanguageUsabilityEnhancements ()
 
     //! ####################################################################
     //! ~~~~~ language usability enhancements:
-    // the very same procedure of constructing an algorithm while using the concepts of a programming language,
-    // such as declaration, definition of variables, constants, etc. program flow control,
-    // object-oriented paradigms,
+    // the very same procedure of constructing an algorithm while using the concepts of a
+    // programming language, such as declaration, definition of variables, constants,
+    // etc. program flow control, object-oriented paradigms,
     // implemented abstracts with the help of templates, concluding this sentence using other words,
-    // whatever occurred before the runtime at the coding or compiling stages is known as language usability,
-    // which summarizes the language behaviour at these stages.
+    // whatever occurred before the runtime at the coding or compiling stages is known
+    // as language usability, which summarizes the language behaviour at these stages.
     ColourCouter ( "~~~~~ Language usability enhancements:\n", F_bWHITE );
     ColourCouter ( "Language usability wraps the way in which a language represents the algorithm of a "
                    "program.\n\n", F_YELLOW );
@@ -41,6 +41,14 @@ void _02_01_LanguageUsabilityEnhancements ()
 }
 
 
+void overloads ( void* )
+{
+  std::cout << "Entry from pointer parameter overload!\n";
+};
+void overloads ( int )
+{
+  std::cout << "Entry from integer parameter overload!\n";
+};
 constexpr int len_function_constexpr ( const int& n )
 {
   // starting from C++ 14, internal use of simple statements like local variables, loops and branches
@@ -61,11 +69,23 @@ void _02_02_Constants ()
     //! ----- constants:
 
     //! --- nullptr
-    // considering 0 and NULL, which is defined as 0 or ((void*)0) in different compilers, while traditional C++ treats them the same,
+    // when it comes to 0 and NULL, which is defined as 0 or ((void*)0) in different compilers,
+    // while traditional C++ treats them the same,
     // they result to counter-intuitive code when putting overload feature into practice.
     // in this scenario, nullptr concept appears to replace NULL, whenever defining a pointer,
     // of which the type is nullptr_t, can implicitly be converted to any pointer of different types
     // and is equally or unequally comparable to them.
+    // in the end note that types of NULL, 0, (void*)0, nullptr aren't the same.
+
+    ColourCouter ( "----- Constants:\n", F_bWHITE );
+    ColourCouter ( "Use nullptr keyword to solve the confusion when using overloads.\n", F_YELLOW );
+
+    overloads ( 0 );
+    overloads ( NULL ); // may not be compiled
+    overloads ( nullptr );
+    overloads ( (void*) 0 ); // need a new overload to compile.
+
+    std::cout << Nline;
 
     //! --- constexpr
     // as a compiler encounters constant expressions like 1+2, 3*4, to increase the performance of the program,
@@ -74,8 +94,6 @@ void _02_02_Constants ()
     // it is possible to explicitly declare the functions or constructors as compile time constant expressions.
     // the constexpr keyword supports the recursivity feature of a function.
 
-    ColourCouter ( "----- Constants:\n", F_bWHITE );
-    ColourCouter ( "Use nullptr keyword to solve the confusion when using overloads.\n", F_YELLOW );
     ColourCouter ( "Use constexpr to explicitly define elaborated language concepts as constant expressions.\n\n", F_YELLOW );
 
 #define len_define 3
@@ -191,16 +209,17 @@ void _02_04_TypeInference ()
     // note that type inferences shall mainly be used when the type can't be determined easily,
     // or them not being used is at the costs of readability.
     ColourCouter ( "----- Type inference:\n", F_bWHITE );
-    ColourCouter ( "To deduce the types, when the need to do so is obvious.\n", F_YELLOW );
+    ColourCouter ( "To deduce the types, when need to do so is obvious.\n", F_YELLOW );
 
     //! --- auto
     // auto as an long introduced keyword in C++ language has been coexisting with register keyword
     // in a way to provide the concept that if a declaration is not explicitly a register,
-    // it is automatically to be treated as an auto.
+    // it is automatically treated as an auto variable i.e. indicator of storage type.
     // with deprecation of register as a concept and upholding it as just keyword in C++ 17,
     // the mentioned concept doesn't make sense anymore.
     // therefore the semantic of auto is naturally changed to put automatic derivation into practice.
-    // note not possible use cases: function arguments, array types
+    // note possible use case since C++ 20: function arguments
+    // note not possible use cases: array types
 
     // other common use cases, which their real need is discussable, since they are at cost of readability! :)
     //auto var { 3 }; // integer variable
@@ -221,8 +240,7 @@ void _02_04_TypeInference ()
     // to overcome the limitation of auto keyword which is usable to declare variables using automatic deduction,
     // modern C++ provides decltype keyword with a very similar usage to sizeof,
     // introducing the calculation of expression types.
-    // note syntax:
-    // decltype (expression);
+    // note syntax: decltype (expression);
     ColourCouter ( "Using the keyword decltype, the type of an expression can be inferred for further usage.\n\n", F_YELLOW );
     auto a { 1 };
     auto b { 2 };
@@ -275,7 +293,7 @@ void _02_05_ControlFlow ()
     //! ----- control flow:
     // 
     ColourCouter ( "----- Control flow:\n", F_bWHITE );
-    ColourCouter ( "To some extend modern C++ expands the features of statement and flow control.\n\n", F_YELLOW );
+    ColourCouter ( "To some extend modern C++ expands the features of statements and flow controls.\n\n", F_YELLOW );
 
     //! --- if constexpr
     // from C++17 the condition of a constant expression can be declared using if statement,
@@ -329,7 +347,7 @@ auto addition ( tTypeA a, tTypeB b )
   return a + b;
 }
 
-template<typename... tTypeInfinite> // zero to an infinite number template paramters
+template<typename... tTypeInfinite> // zero to an infinite number template parameters
 class infinite_A {};
 template<typename tTypeRequired, typename... tTypeOthers> // at least one template parameter
 class infinite_B {};
@@ -354,12 +372,13 @@ void unpack_prmE ( tTypeReq arg, tTypeArgs... elements )
   if constexpr (sizeof...(elements) > 0)
     unpack_prmE ( elements... );
   else
-    std::cout << Nline;
+    std::cout << Nline << Nline;
 };
 // method: initialize list expansion: using the features provided by Lambada expressions
 template<typename tTypeReq, typename... tTypeArgs>
 void unpack_initialE ( tTypeReq arg, tTypeArgs... elements )
 {
+  std::cout << "Number of arguments:" << Tab << sizeof... (elements) << " + 1" << Nline;
   std::cout << arg << Tab;
 
   // after list initialization, the expansion of Lambada expression happens,
@@ -367,7 +386,7 @@ void unpack_initialE ( tTypeReq arg, tTypeArgs... elements )
   // through which the output is complete.
   // note that the explicit conversion to void is to avoid compiler warnings
   // note try debugging the lines to watch the algorithm behaviour step by step.
-  (void) std::initializer_list<tTypeReq>
+  /*(void)*/ std::initializer_list<tTypeReq>
   {
     // (Lambada expression, arg)
     ([&elements] { std::cout << elements << Tab; }(), arg)...
@@ -416,11 +435,11 @@ void _02_06_Templates ()
     // to prevent instantiation in a compilation unit:
     // note that the same instantiation must have already been encountered by compiler
     // in another object file in connection with current compilation unit
-    //extern temlate class std::vector<int>;
+    //extern template class std::vector<int>;
 
     //! --- continuous right angle brackets
-    // concerning templates definitions, modern C++ treat continuous right angle brackets correctly.
-    // in traditional C++  two of the were accepted an compiled to right shift operator.
+    // concerning templates definitions, modern C++ treat continuous right angle brackets correctly, expanding the concept of templates to nested templates.
+    // in traditional C++  two of them were accepted and compiled to right shift operator.
     ColourCouter ( "In modern C++ complex templates can be compiled.\n\n", F_YELLOW );
     std::vector<std::vector<int>> _2D_array; // a not-compilable expression in traditional c++
     for (int i = 0; i < 3; i++)
@@ -477,7 +496,7 @@ void _02_06_Templates ()
     ColourCouter ( "Expression can harness the features provided through packed template parameters.\n\n", F_YELLOW );
     std::cout << multiplyThePack ( 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 ) << Nline << Nline;
 
-    //! --- not-type template parameter deduction
+    //! --- deduced type template parameter
     // modern C++ makes type deduction even in template parameters possible
     // and in C++17 the more elaborated version of this feature is introduced to further simplify the process
     // by using the auto keyword and not providing the exact type of template parameter.
@@ -544,23 +563,25 @@ void _02_07_ObjectOriented ()
 
     //! --- delegate constructor
     // for convenient and simplicity sake, C++11 equips the concept of classes with delegate constructor,
-    // to which a call from the constructor of the class is to undertake.
+    // to which a call from the constructor itself is due.
     ColourCouter ( "A class constructor can call other constructors of the class as its delegate.\n\n", F_YELLOW );
     delegate one ( 2 );
-    std::cout << "The result is:" << Tab << one.getResult () << Nline << Nline;
+    delegate two; // additionally the concept of overloaded constructors
+    std::cout << "The result is:" << Tab << one.getResult () << Nline;
+    std::cout << "The result is:" << Tab << two.getResult () << Nline << Nline;
 
     //! --- inheritance constructor
-    // using the using keyword,
-    // modern C++ (from C++11) expands the concepts of inheritance between classes even to their constructors further,
+    // through using keyword, modern C++ (from C++11) expands the concepts of
+    // inheritance between classes even to their constructors,
     // thus cutting on efficiency issues, when passing arguments to constructors of a base class.
     ColourCouter ( "In modern C++ the constructors of a base class can be inherited.\n\n", F_YELLOW );
     inherited subOne ( 2 );
     std::cout << "The result is:" << Tab << subOne.getResult () << Nline << Nline;
 
     //! --- explicit virtual function overwrite
-    // accidental overloading or not overloading virtual functions by programmer,
-    // either reasoned through the wish of having two functions with the same name,
-    // or a deleted virtual function inherited and not overloaded because of the ownership over the deleted version,
+    // accidental overloading virtual functions or the wish of having two functions with 
+    // the same name, or a deleted virtual function inherited and not overloaded 
+    // because of the ownership over the deleted version as s normal class method 
     // are catastrophic, for which to overcome C++11 introduces the keywords override and final.
 
     //! the keyword override
@@ -570,7 +591,7 @@ void _02_07_ObjectOriented ()
     //! the keyword final
     // preceded by virtual function's declaration, explicitly makes the overload process impossible.
     // preceded by class's declaration, explicitly breaks the inheritance feature there of.
-    ColourCouter ( "Ownership over virtual functions can be explicitly controlled.\n\n", F_YELLOW );
+    ColourCouter ( "Overloads of virtual functions and inheritance of classes can be explicitly controlled.\n\n", F_YELLOW );
   }
   catch (const std::exception&)
   {

@@ -10,7 +10,7 @@
 /// In the source code encountered in mind foreseen as future todos can be seen as such tasks that encourage the nerd community... :|
 /// </summary>
 /// <created>ʆϒʅ,27.11.2019</created>
-/// <changed>ʆϒʅ,19.12.2021</changed>
+/// <changed>ʆϒʅ,29.12.2021</changed>
 // --------------------------------------------------------------------------------
 
 #include "pch.h"
@@ -18,6 +18,10 @@
 #include "_1_Introduction.h"
 #include "_2_UsabilityEnhancements.h"
 #include "_3_RuntimeEnhancements.h"
+
+
+#define Tab '\t'
+#define Nline '\n'
 
 
 int main ()
@@ -92,8 +96,19 @@ int main ()
     ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED );
     ColourCouter ( ".:: LANGUAGE USABILITY ENHANCEMENTS ::.\n", F_CYAN );
 
-    _02_01_LanguageUsabilityEnhancements ();
-    _02_02_Constants ();
+    // Todo menu to choose chapters
+    // which usecase for a programmer is questionable!
+    //char input { 'n' };
+    //std::cout << "Proceed to introduction? Please enter -Y- for yes and -N- for no." << Tab;
+    //std::cin >> input;
+    //std::cout << Nline;
+    //if (input == 'y' || input == 'Y')
+    //{
+    //}
+    ////else
+
+    //_02_01_LanguageUsabilityEnhancements ();
+    //_02_02_Constants ();
     //_02_03_VariablesAndInitialization ();
     //_02_04_TypeInference ();
     //_02_05_ControlFlow ();
@@ -107,8 +122,8 @@ int main ()
 
     _03_01_LanguageRuntimeEnhancements ();
     _03_02_LambadaExpressions ();
-    _03_03_FunctionObjectWrapper ();
-    _03_04_RValueReference ();
+    //_03_03_FunctionObjectWrapper ();
+    //_03_04_RValueReference ();
 
     ColourCouter ( " +++++++++++++++++++++++++++++++++++++++++++++++++", F_bRED );
     ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED );

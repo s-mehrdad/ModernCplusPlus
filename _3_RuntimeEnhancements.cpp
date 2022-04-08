@@ -4,7 +4,7 @@
 /// _1_Introduction.cpp
 /// </summary>
 /// <created>ʆϒʅ,06.12.2019</created>
-/// <changed>ʆϒʅ,14.12.2019</changed>
+/// <changed>ʆϒʅ,05.01.2022</changed>
 // --------------------------------------------------------------------------------
 
 #include "pch.h"
@@ -25,8 +25,8 @@ void _03_01_LanguageRuntimeEnhancements ()
     //! ####################################################################
     //! ~~~~~ language runtime enhancements:
     // after the introduction of enhancements of modern C++ to its usability,
-    // the improvements concerning runtime comes on the row
-    // and the whole of all the concepts that extends it comes in the following.
+    // the improvements concerning runtime are next
+    // and all the concepts that extends it is in the following summarized.
     ColourCouter ( "~~~~~ Language runtime enhancements:\n", F_bWHITE );
     ColourCouter ( "Language runtime represents all the features that effectively affect the performance of a program.\n\n", F_YELLOW );
   }
@@ -44,8 +44,8 @@ void _03_02_LambadaExpressions ()
     //! ####################################################################
     //! ----- lambada expressions:
     // in modern C++ provided gate to anonymous function objects (closures), a very important feature,
-    // is concept by need to introduce functions without names and is supported by many scenarios,
-    // in them their presence is now almost a standard in modern programming languages.
+    // is a concept to introduce functions without names and is supported by many scenarios,
+    // there their presence is now almost a standard in modern programming languages.
     // the feature typically encapsulates a few lines, invoked or passed to algorithms or asynchronous methods.
     ColourCouter ( "----- Lambada expressions:\n", F_bWHITE );
     ColourCouter ( "Lambada expressions wrap the concepts of anonymous functions.\n\n", F_YELLOW );
@@ -56,12 +56,12 @@ void _03_02_LambadaExpressions ()
     //! example: [=]              ()               mutable throw()                 -> int               { lambada-body }
 
     //! capture clause
-    // capture clause, also known as lambada introducer,
-    // introduces by value '=' or by reference '&' accessed variables of surrounding scope,
-    // while legal to be kept empty and capture nothing, can contain capture-defaults [=] and [&] specifications
+    // capture clause, also known as lambada introducer, in simple form is utilized by
+    // value '=' or by reference '&' to access variables of surrounding scope.
+    // while legal to be kept empty and capture nothing, can also contain capture-defaults [=] and [&] specifications
     // to indicate how to access any outside variables and in what form, and even these can be mixed and introduced together.
     // a capture containing ellipsis indicate a pack expansion,
-    // and probably 'this' pointer need to be passed to a lambada within a class member function,
+    // and obviously 'this' pointer need to be passed to a lambada within a class member function,
     // of which the *this form copies entire outside scope usable in parallelism and asynchronous operations.
     // note the practice of passing local variables by reference is lifetime dependent,
     // thus prone to runtime access violation errors.
@@ -119,9 +119,10 @@ void _03_02_LambadaExpressions ()
     std::cout << Nline << Nline;
 
     auto number = std::make_unique<int> ( 5 );
-    auto sum = [=, count = std::move ( number )] ( auto calc ) // an anonymous function which captures by expression
+    auto sum = [=, count = std::move ( number )] ( auto calc ) // an anonymous function which captures by expression and note that the exclusive pointer is first transferred to rvalue.
+     // additionally pay attention to the use of generic parameter
     {
-      auto [sum, sign] = std::tuple<int, std::string> ( std::make_tuple ( 0, "" ) );
+      auto [sum, sign] = std::tuple<int, std::string> ( std::make_tuple ( 0, "For result enable calculation!" ) );
       for (auto i = 0; i < *count; i++)
       {
         sum += test [i];
@@ -133,7 +134,7 @@ void _03_02_LambadaExpressions ()
           sign = "odd";
       return std::make_tuple ( sum, sign );
     };
-    auto [tempA, tempB] = std::tuple<int, std::string> ( sum ( true ) );
+    auto [tempA, tempB] = std::tuple<int, std::string> ( sum ( 0 ) );
     std::cout << "The sum of elements is:" << Tab << tempA << Tab << "which is " << tempB << Nline << Nline;
   }
   catch (const std::exception&)
@@ -162,7 +163,7 @@ void _03_03_FunctionObjectWrapper ()
     //! --- introduction
     // since a lambada expression (an object of class type known as closure type) is essentially
     // similar to a function object type (known as closure object),
-    // when one is introduced with empty capture list, it is convertible a function pointer.
+    // when one is introduced with empty capture list, it is convertible to a function pointer.
     // note that the type of objects that can be called is collectively called callable type.
     ColourCouter ( "In C++ language, it is possible to unsafely convert a closure type.\n\n", F_YELLOW );
     auto closure = []( int input ) { std::cout << input + 1 << Tab; };
