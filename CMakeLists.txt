@@ -4,7 +4,7 @@
 #/
 #/ </summary>
 #/ <created>ʆϒʅ,27.11.2019</created>
-#/ <changed>ʆϒʅ,19.12.2021</changed>
+#/ <changed>ʆϒʅ,05.03.2022</changed>
 # *******************************************************************************************
 
 cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
@@ -16,7 +16,7 @@ set(PROJECT_NAME ${TARGET_NAME})
 project(${PROJECT_NAME}
   VERSION 1.0.0.1
   DESCRIPTION "A brief introduction to modern C++"
-  HOMEPAGE_URL "https://github.com/BirdSofts/ModernCplusPlus"
+  HOMEPAGE_URL "https://github.com/s-mehrdad/ModernCplusPlus"
   LANGUAGES CXX
   )
 
