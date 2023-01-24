@@ -1,4 +1,4 @@
-﻿
+
 // --------------------------------------------------------------------------------
 /// <summary>
 /// ............................::Nerd snow sayings!::............................
@@ -8,13 +8,20 @@
 /// Programming in a way, that no nerdy dog in the future is able to compile it, is to be avoided!
 /// I was almost a good nerd and emptied my Recycle Bin regularly at the night! :) So be a lamb (^.^) and stay a good nerd!
 /// In the source code encountered in mind foreseen as future todos can be seen as such tasks that encourage the nerd community... :|
+/// ModernCplusPlus.cpp
+/// ModernCplusPlus
+/// created by Mehrdad Solimanimajd on 27.11.2019
 /// </summary>
-/// <created>ʆϒʅ,27.11.2019</created>
-/// <changed>ʆϒʅ,29.12.2021</changed>
+/// <created>ʆϒʅ, 27.11.2019</created>
+/// <changed>ʆϒʅ, 23.01.2023</changed>
 // --------------------------------------------------------------------------------
 
 #include "pch.h"
+#ifdef _WIN32
 #include "Console.h"
+#elifdef __APPLE__
+#include "Terminal.h"
+#endif
 #include "_1_Introduction.h"
 #include "_2_UsabilityEnhancements.h"
 #include "_3_RuntimeEnhancements.h"
@@ -30,6 +37,7 @@ int main ()
   {
 #pragma region Console
     // font
+#ifdef _WIN32
     COORD fontS { 15,15 };
     ConsoleFont ( L"Lucida Sans Typewriter" );
     ConsoleFontSize ( fontS );
@@ -41,6 +49,7 @@ int main ()
     ConsoleScreenPosition ( leftANDtop );
     ConsoleScreenSize ( widthANDheight );
     ConsoleScreenColour ( backColour );
+#endif
 
     //// cursor
     //ConsoleCursorState ( false );
@@ -65,7 +74,7 @@ int main ()
     // C++ reference: http://www.cplusplus.com/reference/
     ColourCouter ( " -------------------------------------------------", F_bRED );
     ColourCouter ( "-------------------------------------------------\n", F_bRED );
-    ColourCouter ( "References:\n", F_bWHITE );
+    ColourCouter ( "References:\n", F_bPURPLE );
     ColourCouter ( "https://changkun.de/modern-cpp/en-us/00-preface/index.html\n", F_YELLOW );
     ColourCouter ( "http://www.cplusplus.com/doc/\n", F_YELLOW );
     ColourCouter ( "https://stackoverflow.com/\n", F_YELLOW );
@@ -77,7 +86,7 @@ int main ()
     ColourCouter ( " -------------------------------------------------", F_bRED );
     ColourCouter ( "-------------------------------------------------\n", F_bRED );
     //! ...............................:: nerd Snow's sayings! ::...............................
-    ColourCouter ( "Nerd snow's sayings!\n", F_bWHITE );
+    ColourCouter ( "Nerd snow's sayings!\n", F_bPURPLE );
     ColourCouter ( "Programming needs patience and practical practice.\n", F_YELLOW );
     ColourCouter ( "Programming in a way, that no nerdy dog in the future is able to compile it, is to be avoided!\n", F_YELLOW );
     ColourCouter ( "I was almost a good nerd and emptied my Recycle Bin regularly at the night! :) So be a lamb (^.^) and stay a good nerd!\n", F_YELLOW );
@@ -107,13 +116,13 @@ int main ()
     //}
     ////else
 
-    //_02_01_LanguageUsabilityEnhancements ();
-    //_02_02_Constants ();
-    //_02_03_VariablesAndInitialization ();
-    //_02_04_TypeInference ();
-    //_02_05_ControlFlow ();
-    //_02_06_Templates ();
-    //_02_07_ObjectOriented ();
+    _02_01_LanguageUsabilityEnhancements ();
+    _02_02_Constants ();
+    _02_03_VariablesAndInitialization ();
+    _02_04_TypeInference ();
+    _02_05_ControlFlow ();
+    _02_06_Templates ();
+    _02_07_ObjectOriented ();
 
     //! .................................:: LANGUAGE RUNTIME ENHANCEMENTS ::.................................
     ColourCouter ( " +++++++++++++++++++++++++++++++++++++++++++++++++", F_bRED );
@@ -122,8 +131,8 @@ int main ()
 
     _03_01_LanguageRuntimeEnhancements ();
     _03_02_LambadaExpressions ();
-    //_03_03_FunctionObjectWrapper ();
-    //_03_04_RValueReference ();
+    _03_03_FunctionObjectWrapper ();
+    _03_04_RValueReference ();
 
     ColourCouter ( " +++++++++++++++++++++++++++++++++++++++++++++++++", F_bRED );
     ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED );

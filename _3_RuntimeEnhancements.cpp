@@ -1,14 +1,20 @@
-﻿
+
 // --------------------------------------------------------------------------------
 /// <summary>
 /// _1_Introduction.cpp
+/// ModernCplusPlus
+/// created by Mehrdad Solimanimajd on 06.12.2019
 /// </summary>
-/// <created>ʆϒʅ,06.12.2019</created>
-/// <changed>ʆϒʅ,05.01.2022</changed>
+/// <created>ʆϒʅ, 06.12.2019</created>
+/// <changed>ʆϒʅ, 23.01.2023</changed>
 // --------------------------------------------------------------------------------
 
 #include "pch.h"
+#ifdef _WIN32
 #include "Console.h"
+#elifdef __APPLE__
+#include "Terminal.h"
+#endif
 
 
 #define Tab '\t'
@@ -27,7 +33,7 @@ void _03_01_LanguageRuntimeEnhancements ()
     // after the introduction of enhancements of modern C++ to its usability,
     // the improvements concerning runtime are next
     // and all the concepts that extends it is in the following summarized.
-    ColourCouter ( "~~~~~ Language runtime enhancements:\n", F_bWHITE );
+    ColourCouter ( "~~~~~ Language runtime enhancements:\n", F_bPURPLE );
     ColourCouter ( "Language runtime represents all the features that effectively affect the performance of a program.\n\n", F_YELLOW );
   }
   catch (const std::exception&)
@@ -47,7 +53,7 @@ void _03_02_LambadaExpressions ()
     // is a concept to introduce functions without names and is supported by many scenarios,
     // there their presence is now almost a standard in modern programming languages.
     // the feature typically encapsulates a few lines, invoked or passed to algorithms or asynchronous methods.
-    ColourCouter ( "----- Lambada expressions:\n", F_bWHITE );
+    ColourCouter ( "----- Lambada expressions:\n", F_bPURPLE );
     ColourCouter ( "Lambada expressions wrap the concepts of anonymous functions.\n\n", F_YELLOW );
 
     //! --- basics
@@ -128,10 +134,12 @@ void _03_02_LambadaExpressions ()
         sum += test [i];
       }
       if (calc)
-        if (sum % 2 == 0)
-          sign = "even";
-        else
-          sign = "odd";
+      {
+          if (sum % 2 == 0)
+              sign = "even";
+          else
+              sign = "odd";
+      }
       return std::make_tuple ( sum, sign );
     };
     auto [tempA, tempB] = std::tuple<int, std::string> ( sum ( 0 ) );
@@ -157,7 +165,7 @@ void _03_03_FunctionObjectWrapper ()
     //! ####################################################################
     //! ----- function object wrapper: 
     // modern C++ language is able to encapsulate function objects to enhance runtime capabilities.
-    ColourCouter ( "----- Function object wrapper:\n", F_bWHITE );
+    ColourCouter ( "----- Function object wrapper:\n", F_bPURPLE );
     ColourCouter ( "C++ standard features to safely wrap function objects.\n\n", F_YELLOW );
 
     //! --- introduction
@@ -206,7 +214,7 @@ void _03_04_RValueReference ()
     //! ####################################################################
     //! ----- : rvalue reference
      // 
-    ColourCouter ( "----- rvalue reference:\n", F_bWHITE );
+    ColourCouter ( "----- rvalue reference:\n", F_bPURPLE );
     ColourCouter ( ".\n\n", F_YELLOW );
 
 

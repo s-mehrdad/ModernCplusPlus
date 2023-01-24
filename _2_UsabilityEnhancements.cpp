@@ -1,14 +1,20 @@
-﻿
+
 // --------------------------------------------------------------------------------
 /// <summary>
 /// _1_Introduction.cpp
+/// ModernCplusPlus
+/// created by Mehrdad Solimanimajd on 27.11.2019
 /// </summary>
-/// <created>ʆϒʅ,27.11.2019</created>
-/// <changed>ʆϒʅ,29.12.2021</changed>
+/// <created>ʆϒʅ, 27.11.2019</created>
+/// <changed>ʆϒʅ, 23.01.2023</changed>
 // --------------------------------------------------------------------------------
 
 #include "pch.h"
+#ifdef _WIN32
 #include "Console.h"
+#elifdef __APPLE__
+#include "Terminal.h"
+#endif
 
 
 #define Tab '\t'
@@ -30,7 +36,7 @@ void _02_01_LanguageUsabilityEnhancements ()
     // implemented abstracts with the help of templates, concluding this sentence using other words,
     // whatever occurred before the runtime at the coding or compiling stages is known
     // as language usability, which summarizes the language behaviour at these stages.
-    ColourCouter ( "~~~~~ Language usability enhancements:\n", F_bWHITE );
+    ColourCouter ( "~~~~~ Language usability enhancements:\n", F_bPURPLE );
     ColourCouter ( "Language usability wraps the way in which a language represents the algorithm of a "
                    "program.\n\n", F_YELLOW );
   }
@@ -77,11 +83,13 @@ void _02_02_Constants ()
     // and is equally or unequally comparable to them.
     // in the end note that types of NULL, 0, (void*)0, nullptr aren't the same.
 
-    ColourCouter ( "----- Constants:\n", F_bWHITE );
+    ColourCouter ( "----- Constants:\n", F_bPURPLE );
     ColourCouter ( "Use nullptr keyword to solve the confusion when using overloads.\n", F_YELLOW );
 
     overloads ( 0 );
+#ifdef _WIN32
     overloads ( NULL ); // may not be compiled
+#endif
     overloads ( nullptr );
     overloads ( (void*) 0 ); // need a new overload to compile.
 
@@ -122,7 +130,7 @@ void _02_03_VariablesAndInitialization ()
   {
     //! ####################################################################
     //! ----- variables and initialization:
-    ColourCouter ( "----- Variables and initialization:\n", F_bWHITE );
+    ColourCouter ( "----- Variables and initialization:\n", F_bPURPLE );
 
     //! --- if-switch
     // traditional C++ lacks the support for declarations within the if and switch statements,
@@ -208,7 +216,7 @@ void _02_04_TypeInference ()
     // thus like modern languages it is possible to handle the types easier.
     // note that type inferences shall mainly be used when the type can't be determined easily,
     // or them not being used is at the costs of readability.
-    ColourCouter ( "----- Type inference:\n", F_bWHITE );
+    ColourCouter ( "----- Type inference:\n", F_bPURPLE );
     ColourCouter ( "To deduce the types, when need to do so is obvious.\n", F_YELLOW );
 
     //! --- auto
@@ -292,7 +300,7 @@ void _02_05_ControlFlow ()
     //! ####################################################################
     //! ----- control flow:
     // 
-    ColourCouter ( "----- Control flow:\n", F_bWHITE );
+    ColourCouter ( "----- Control flow:\n", F_bPURPLE );
     ColourCouter ( "To some extend modern C++ expands the features of statements and flow controls.\n\n", F_YELLOW );
 
     //! --- if constexpr
@@ -418,7 +426,7 @@ void _02_06_Templates ()
     //! ####################################################################
     //! ----- templates:
     // the known black magic of C++ language has been expanded with new features in moderner versions.
-    ColourCouter ( "----- Templates:\n", F_bWHITE );
+    ColourCouter ( "----- Templates:\n", F_bPURPLE );
     ColourCouter ( "In modern C++ templates and generic codes are even more elaborated.\n\n", F_YELLOW );
 
     //! --- extern templates
@@ -558,7 +566,7 @@ void _02_07_ObjectOriented ()
     //! ####################################################################
     //! ----- object-oriented:
     // as development of C++ language steps forward, the concepts of OOP becomes more elaborated.
-    ColourCouter ( "----- Object-oriented:\n", F_bWHITE );
+    ColourCouter ( "----- Object-oriented:\n", F_bPURPLE );
     ColourCouter ( "C++ language as an object-oriented programming language is in constant expansion.\n\n", F_YELLOW );
 
     //! --- delegate constructor

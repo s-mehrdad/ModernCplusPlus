@@ -1,23 +1,27 @@
-﻿
+
 // --------------------------------------------------------------------------------
 /// <summary>
 /// pch.h
+/// ModernCplusPlus
+/// created by Mehrdad Solimanimajd on 27.11.2019
 /// </summary>
-/// <created>ʆϒʅ,27.11.2019</created>
-/// <changed>ʆϒʅ,13.12.2019</changed>
+/// <created>ʆϒʅ, 27.11.2019</created>
+/// <changed>ʆϒʅ, 23.01.2023</changed>
 // --------------------------------------------------------------------------------
 
 #ifndef PCH_H
 #define PCH_H
 
 
-#if WIN32
+#ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN // rarely-used stuff exclusion
-#endif // WIN32
+#endif // _WIN32
 
 
 #include <stdio.h> // C language standard input output library
+#ifdef _WIN32
 #include <tchar.h> // Microsoft string's differences coverage library
+#endif
 
 #include <iostream> // C++ standard input and output streams
 #include <iomanip> // C++ standard i/o manipulators
@@ -25,7 +29,11 @@
 #include <string> // C++ standard string class
 
 #include <cwchar> // C++ standard library to work with C wide strings
+#ifdef _WIN32
 #include <Windows.h> // Windows standard API's
+#elifdef __APPLE__
+#include <termios.h>
+#endif
 
 #include <sstream> // C++ standard string streams
 

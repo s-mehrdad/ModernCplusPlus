@@ -1,15 +1,20 @@
-﻿
+
 // ********************************************************************************
 /// <summary>
-/// the searched and confronted ways for manipulation of Windows's console screen by the code itself in runtime.
+/// Windows's console screen manipulations at runtime
+/// Console.cpp
+/// ModernCplusPlus
+/// created by Mehrdad Solimanimajd on 27.11.2019
 /// </summary>
 /// <returns></returns>
-/// <created>ʆϒʅ,27.11.2019</created>
-/// <changed>ʆϒʅ,27.11.2019</changed>
+/// <created>ʆϒʅ, 27.11.2019</created>
+/// <changed>ʆϒʅ, 23.01.2023</changed>
 // ********************************************************************************
 
 #include "pch.h"
 #include "Console.h"
+
+#ifdef _WIN32
 
 
 // console screen properties (DLL internal state variables)
@@ -105,3 +110,6 @@ void ColourCouter ( const std::string strCharacter, const WORD Colour )
   SetConsoleTextAttribute ( consoleOutput, screenBinfoEXstorage.wAttributes );
   GetConsoleScreenBufferInfoEx ( consoleOutput, &screenBinfoEX );
 }
+
+
+#endif

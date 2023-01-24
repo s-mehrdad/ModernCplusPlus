@@ -1,10 +1,12 @@
-﻿
+
 # *******************************************************************************************
 #/ <summary>
-#/
+#/ CMakeLists.txt
+#/ ModernCplusPlus
+#/ created by Mehrdad Solimanimajd on 27.11.2019
 #/ </summary>
-#/ <created>ʆϒʅ,27.11.2019</created>
-#/ <changed>ʆϒʅ,05.03.2022</changed>
+#/ <created>ʆϒʅ, 27.11.2019</created>
+#/ <changed>ʆϒʅ, 24.01.2023</changed>
 # *******************************************************************************************
 
 cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
@@ -13,15 +15,16 @@ set(TARGET_NAME ModernCplusPlus)
 
 set(PROJECT_NAME ${TARGET_NAME})
 
+set(CMAKE_CXX_COMPILER Clang++)
+set(CMAKE_CXX_STANDARD_REQUIRED on)
+set(CMAKE_CXX_STANDARD 20)
+
 project(${PROJECT_NAME}
   VERSION 1.0.0.1
   DESCRIPTION "A brief introduction to modern C++"
   HOMEPAGE_URL "https://github.com/s-mehrdad/ModernCplusPlus"
   LANGUAGES CXX
   )
-
-set(CMAKE_CXX_STANDARD_REQUIRED on)
-set(CMAKE_CXX_STANDARD 20)
 
 if(MSVC)
   list(APPEND RESOURCES
@@ -36,6 +39,7 @@ list(APPEND HEADER_FILES
   _2_UsabilityEnhancements.h
   _3_RuntimeEnhancements.h
   Console.h
+  Terminal.h
   )
 
 list(APPEND SOURCE_FILES
@@ -45,6 +49,7 @@ list(APPEND SOURCE_FILES
   _2_UsabilityEnhancements.cpp
   _3_RuntimeEnhancements.cpp
   Console.cpp
+  Terminal.cpp
   )
 
 if(WIN32)

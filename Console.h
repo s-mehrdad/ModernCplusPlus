@@ -1,15 +1,20 @@
-﻿
+
 // ********************************************************************************
 /// <summary>
-/// the searched and confronted ways for manipulation of Windows's console screen by the code itself in runtime.
+/// Windows's console screen manipulations at runtime
+/// Console.h
+/// ModernCplusPlus
+/// created by Mehrdad Solimanimajd on 27.11.2019
 /// </summary>
 /// <returns></returns>
-/// <created>ʆϒʅ,27.11.2019</created>
-/// <changed>ʆϒʅ,27.11.2019</changed>
+/// <created>ʆϒʅ, 27.11.2019</created>
+/// <changed>ʆϒʅ, 23.01.2023</changed>
 // ********************************************************************************
 
 #ifndef CONSOLE_H
 #define CONSOLE_H
+
+#ifdef _WIN32
 
 
 #define F_BLACK                 0x00
@@ -61,5 +66,7 @@ void ConsoleScreenColour ( const COLORREF BGcolour );
 void ConsoleCursorState ( const bool CursorVisibility );
 void ColourCouter ( const std::string strCharacter, const WORD Colour );
 
+
+#endif
 
 #endif // !CONSOLE_H

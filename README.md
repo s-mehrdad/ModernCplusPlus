@@ -4,10 +4,10 @@ Concerning the new features of C++ language, while the project aims to serve as 
 
 # Getting Started
 1.  Installation process:
-Can be compiled.
+Both Visual Studio and Qt Creator (MinGW) IDEs have been tested. MacOs's Xcode and Cmake have been used to build too.
 
 2.  Software dependencies:
-Dependent on Windows APIs
+Crossplatform on Windows, MacOs and Linux
 
 3.  Latest releases:
 The source code is released.
