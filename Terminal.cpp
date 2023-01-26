@@ -1,3 +1,4 @@
+
 // ********************************************************************************
 /// <summary>
 /// MacOs's terminal screen manipulations at runtime.
@@ -7,7 +8,7 @@
 /// </summary>
 /// <returns></returns>
 /// <created>ʆϒʅ, 12.01.2023</created>
-/// <changed>ʆϒʅ, 23.01.2023</changed>
+/// <changed>ʆϒʅ, 26.01.2023</changed>
 // ********************************************************************************
 
 #include "pch.h"
@@ -100,12 +101,17 @@ void ConsoleCursorState ( const bool CursorVisible )
 }
 
 
-void ColourCouter ( const std::string strCharacter, const std::string Colour )
+void ColourCouter ( const std::string strCharacter, const std::string Colour, const bool Pick)
 {
 //  GetConsoleScreenBufferInfoEx ( consoleOutput, &screenBinfoEX );
 //  screenBinfoEXstorage = screenBinfoEX;
 //  SetConsoleTextAttribute ( consoleOutput, Colour );
-  std::cout << Colour << strCharacter;
+    if (Pick) {
+        std::cout << "\033[0m" << strCharacter;
+    } else
+    {
+        std::cout << Colour << strCharacter;
+    }
 //  SetConsoleTextAttribute ( consoleOutput, screenBinfoEXstorage.wAttributes );
 //  GetConsoleScreenBufferInfoEx ( consoleOutput, &screenBinfoEX );
 }

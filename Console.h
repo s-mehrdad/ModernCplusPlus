@@ -64,7 +64,7 @@ void ConsoleScreenPosition ( const COORD screenPosition );
 void ConsoleScreenSize ( const COORD ColRowCount );
 void ConsoleScreenColour ( const COLORREF BGcolour );
 void ConsoleCursorState ( const bool CursorVisibility );
-void ColourCouter ( const std::string strCharacter, const WORD Colour );
+void ColourCouter ( const std::string strCharacter, const WORD Colour const bool Pick);
 
 
 #endif

@@ -101,7 +101,7 @@ void ConsoleCursorState ( const bool CursorVisible )
 }
 
 
-void ColourCouter ( const std::string strCharacter, const WORD Colour )
+void ColourCouter ( const std::string strCharacter, const WORD Colour, const bool Pick )
 {
   GetConsoleScreenBufferInfoEx ( consoleOutput, &screenBinfoEX );
   screenBinfoEXstorage = screenBinfoEX;

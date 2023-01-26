@@ -1,3 +1,4 @@
+
 // ********************************************************************************
 /// <summary>
 /// MacOs's terminal screen manipualtions at runtime
@@ -7,7 +8,7 @@
 /// </summary>
 /// <returns></returns>
 /// <created>ʆϒʅ, 12.01.2023</created>
-/// <changed>ʆϒʅ, 23.01.2023</changed>
+/// <changed>ʆϒʅ, 26.01.2023</changed>
 // ********************************************************************************
 
 #ifndef TERMINAL_H
@@ -107,7 +108,7 @@ void ConsoleScreenPosition ( const coordinateType screenPosition );
 void ConsoleScreenSize ( const coordinateType ColRowCount );
 //void ConsoleScreenColour ( const COLORREF BGcolour );
 void ConsoleCursorState ( const bool CursorVisibility );
-void ColourCouter ( const std::string strCharacter, const std::string Colour );
+void ColourCouter ( const std::string strCharacter, const std::string Colour, const bool Pick);
 
 
 #endif

@@ -21,8 +21,8 @@ void _01_01_Introduction ()
 {
   try
   {
-    ColourCouter ( " -------------------------------------------------", F_bRED );
-    ColourCouter ( "-------------------------------------------------\n\n", F_bRED );
+    ColourCouter ( " -------------------------------------------------", F_bRED, false );
+    ColourCouter ( "-------------------------------------------------\n\n", F_bRED, false );
 
     //! ####################################################################
     //! ~~~~~ modern C++ language:
@@ -60,9 +60,9 @@ void _01_01_Introduction ()
     // most of these deprecations are permanently reserve to support backward compatibility.
     // additionally the following writing doesn't concern itself to introduce them,
     // and when interested, the research is due.
-    ColourCouter ( "~~~~~ Modern C++ language:\n", F_bPURPLE );
+    ColourCouter ( "~~~~~ Modern C++ language:\n", F_bPURPLE, false );
     ColourCouter ( "The constant evolution of the C++ language over the years, make the use of a compiler with "
-                   "support for the most recent feature self-explanatory.\n\n", F_YELLOW );
+                   "support for the most recent feature self-explanatory.\n\n", F_bYELLOW, true );
 
     //! ####################################################################
     //! ----- C++ compilers:
@@ -72,9 +72,9 @@ void _01_01_Introduction ()
     // into machine language, which results to a highly efficient program.
     // for this purpose, a set of tools, known as development toolchain, are needed,
     // whose core are a compiler and its linker.
-    ColourCouter ( "----- C++ Compilers:\n", F_bPURPLE );
+    ColourCouter ( "----- C++ Compilers:\n", F_bPURPLE, false );
     ColourCouter ( "The compilers job are to rewrite the code in higher level language into machine language, "
-                   "which have been built into various programming applications\n\n", F_YELLOW );
+                   "which have been built into various programming applications\n\n", F_bYELLOW, true );
 
     //! ####################################################################
     //! ----- console programs:
@@ -82,9 +82,9 @@ void _01_01_Introduction ()
     // across all platforms make them very useful to learn the basics of a programming language.
     // the programmer's decision to use a particular tool defines the way,
     // in which a console program get compiled.
-    ColourCouter ( "----- Console programs:\n", F_bPURPLE );
+    ColourCouter ( "----- Console programs:\n", F_bPURPLE, false );
     ColourCouter ( "They are programs that use characters to communicate with user and their environment "
-                   "i.e. printer, keyboard etc.\n\n", F_YELLOW );
+                   "i.e. printer, keyboard etc.\n\n", F_bYELLOW, true );
 
     //! ####################################################################
     //! ----- IDE:
@@ -100,9 +100,9 @@ void _01_01_Introduction ()
     // ---------------------------------------------
     // Dev-C++                  Windows
     // ---------------------------------------------
-    ColourCouter ( "----- IDE:\n", F_bPURPLE );
+    ColourCouter ( "----- IDE:\n", F_bPURPLE, false );
     ColourCouter ( "The easiest way for a beginner is to use an Integrated Development "
-                   "Environment (IDE).\n\n", F_YELLOW );
+                   "Environment (IDE).\n\n", F_bYELLOW, true );
 
     //! - in addition:
     // if there is a Linux or Mac environment with development features at disposal,

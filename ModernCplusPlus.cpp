@@ -21,6 +21,7 @@
 #include "Console.h"
 #elifdef __APPLE__
 #include "Terminal.h"
+#define CHOOSE "Pick"
 #endif
 #include "_1_Introduction.h"
 #include "_2_UsabilityEnhancements.h"
@@ -72,38 +73,38 @@ int main ()
     // https://www.ibm.com/support/knowledgecenter/en/
     // https://www.tutorialspoint.com/cplusplus/
     // C++ reference: http://www.cplusplus.com/reference/
-    ColourCouter ( " -------------------------------------------------", F_bRED );
-    ColourCouter ( "-------------------------------------------------\n", F_bRED );
-    ColourCouter ( "References:\n", F_bPURPLE );
-    ColourCouter ( "https://changkun.de/modern-cpp/en-us/00-preface/index.html\n", F_YELLOW );
-    ColourCouter ( "http://www.cplusplus.com/doc/\n", F_YELLOW );
-    ColourCouter ( "https://stackoverflow.com/\n", F_YELLOW );
-    ColourCouter ( "http://de.cppreference.com/\n", F_YELLOW );
-    ColourCouter ( "https://docs.microsoft.com/\n", F_YELLOW );
-    ColourCouter ( "https://www.ibm.com/support/knowledgecenter/en/\n", F_YELLOW );
-    ColourCouter ( "https://www.tutorialspoint.com/cplusplus/\n", F_YELLOW );
-    ColourCouter ( "C++ reference: http://www.cplusplus.com/reference/\n", F_YELLOW );
-    ColourCouter ( " -------------------------------------------------", F_bRED );
-    ColourCouter ( "-------------------------------------------------\n", F_bRED );
+    ColourCouter ( " -------------------------------------------------", F_bRED, false );
+    ColourCouter ( "-------------------------------------------------\n", F_bRED, false );
+    ColourCouter ( "References:\n", F_bPURPLE, false );
+    ColourCouter ( "https://changkun.de/modern-cpp/en-us/00-preface/index.html\n", F_YELLOW, true );
+    ColourCouter ( "http://www.cplusplus.com/doc/\n", F_YELLOW, true );
+    ColourCouter ( "https://stackoverflow.com/\n", F_YELLOW, true );
+    ColourCouter ( "http://de.cppreference.com/\n", F_YELLOW, true );
+    ColourCouter ( "https://docs.microsoft.com/\n", F_YELLOW, true );
+    ColourCouter ( "https://www.ibm.com/support/knowledgecenter/en/\n", F_YELLOW, true );
+    ColourCouter ( "https://www.tutorialspoint.com/cplusplus/\n", F_YELLOW, true );
+    ColourCouter ( "C++ reference: http://www.cplusplus.com/reference/\n", F_YELLOW, true );
+    ColourCouter ( " -------------------------------------------------", F_bRED, false );
+    ColourCouter ( "-------------------------------------------------\n", F_bRED, false );
     //! ...............................:: nerd Snow's sayings! ::...............................
-    ColourCouter ( "Nerd snow's sayings!\n", F_bPURPLE );
-    ColourCouter ( "Programming needs patience and practical practice.\n", F_YELLOW );
-    ColourCouter ( "Programming in a way, that no nerdy dog in the future is able to compile it, is to be avoided!\n", F_YELLOW );
-    ColourCouter ( "I was almost a good nerd and emptied my Recycle Bin regularly at the night! :) So be a lamb (^.^) and stay a good nerd!\n", F_YELLOW );
-    ColourCouter ( "In the source code encountered in mind foreseen as future todos can be seen as such tasks that encourage the nerd community... :|\n", F_YELLOW );
-    ColourCouter ( " -------------------------------------------------", F_bRED );
-    ColourCouter ( "-------------------------------------------------\n\n", F_bRED );
+    ColourCouter ( "Nerd snow's sayings!\n", F_bPURPLE, false );
+    ColourCouter ( "Programming needs patience and practical practice.\n", F_YELLOW, true );
+    ColourCouter ( "Programming in a way, that no nerdy dog in the future is able to compile it, is to be avoided!\n", F_YELLOW, true );
+    ColourCouter ( "I was almost a good nerd and emptied my Recycle Bin regularly at the night! :) So be a lamb (^.^) and stay a good nerd!\n", F_YELLOW, true );
+    ColourCouter ( "In the source code encountered in mind foreseen as future todos can be seen as such tasks that encourage the nerd community... :|\n", F_YELLOW, true );
+    ColourCouter ( " -------------------------------------------------", F_bRED, false );
+    ColourCouter ( "-------------------------------------------------\n\n", F_bRED, false );
 
-    ColourCouter ( " +++++++++++++++++++++++++++++++++++++++++++++++++", F_bRED );
-    ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED );
-    ColourCouter ( ".:: Introduction ::.\n", F_CYAN );
+    ColourCouter ( " +++++++++++++++++++++++++++++++++++++++++++++++++", F_bRED, false );
+    ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED, false );
+    ColourCouter ( ".:: Introduction ::.\n", F_CYAN, false );
 
     _01_01_Introduction ();
 
     //! .................................:: LANGUAGE USABILITY ENHANCEMENTS ::.................................
-    ColourCouter ( " +++++++++++++++++++++++++++++++++++++++++++++++++", F_bRED );
-    ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED );
-    ColourCouter ( ".:: LANGUAGE USABILITY ENHANCEMENTS ::.\n", F_CYAN );
+    ColourCouter ( " +++++++++++++++++++++++++++++++++++++++++++++++++", F_bRED, false );
+    ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED, false );
+    ColourCouter ( ".:: LANGUAGE USABILITY ENHANCEMENTS ::.\n", F_CYAN, false );
 
     // Todo menu to choose chapters
     // which usecase for a programmer is questionable!
@@ -125,17 +126,17 @@ int main ()
     _02_07_ObjectOriented ();
 
     //! .................................:: LANGUAGE RUNTIME ENHANCEMENTS ::.................................
-    ColourCouter ( " +++++++++++++++++++++++++++++++++++++++++++++++++", F_bRED );
-    ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED );
-    ColourCouter ( ".:: LANGUAGE RUNTIME ENHANCEMENTS ::.\n", F_CYAN );
+    ColourCouter ( " +++++++++++++++++++++++++++++++++++++++++++++++++", F_bRED, false );
+    ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED, false );
+    ColourCouter ( ".:: LANGUAGE RUNTIME ENHANCEMENTS ::.\n", F_CYAN, false );
 
     _03_01_LanguageRuntimeEnhancements ();
     _03_02_LambadaExpressions ();
     _03_03_FunctionObjectWrapper ();
     _03_04_RValueReference ();
 
-    ColourCouter ( " +++++++++++++++++++++++++++++++++++++++++++++++++", F_bRED );
-    ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED );
+    ColourCouter ( " +++++++++++++++++++++++++++++++++++++++++++++++++", F_bRED, false );
+    ColourCouter ( "+++++++++++++++++++++++++++++++++++++++++++++++++\n", F_bRED, false );
   }
   catch (const std::exception&)
   {
