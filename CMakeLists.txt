@@ -3,10 +3,10 @@
 #/ <summary>
 #/ CMakeLists.txt
 #/ ModernCplusPlus
-#/ created by Mehrdad Solimanimajd on 27.11.2019
+#/ created by Mehrdad Soleimanimajd on 27.11.2019
 #/ </summary>
 #/ <created>ʆϒʅ, 27.11.2019</created>
-#/ <changed>ʆϒʅ, 24.01.2023</changed>
+#/ <changed>ʆϒʅ, 14.03.2023</changed>
 # *******************************************************************************************
 
 cmake_minimum_required(VERSION 3.8 FATAL_ERROR)

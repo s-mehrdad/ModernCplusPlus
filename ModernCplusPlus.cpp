@@ -10,10 +10,10 @@
 /// In the source code encountered in mind foreseen as future todos can be seen as such tasks that encourage the nerd community... :|
 /// ModernCplusPlus.cpp
 /// ModernCplusPlus
-/// created by Mehrdad Solimanimajd on 27.11.2019
+/// created by Mehrdad Soleimanimajd on 27.11.2019
 /// </summary>
 /// <created>ʆϒʅ, 27.11.2019</created>
-/// <changed>ʆϒʅ, 23.01.2023</changed>
+/// <changed>ʆϒʅ, 14.03.2023</changed>
 // --------------------------------------------------------------------------------
 
 #include "pch.h"

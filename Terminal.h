@@ -4,11 +4,11 @@
 /// MacOs's terminal screen manipualtions at runtime
 /// Terminal.h
 /// ModernCplusPlus
-/// created by Mehrdad Solimanimajd on 12.01.2023
+/// created by Mehrdad Soleimanimajd on 12.01.2023
 /// </summary>
 /// <returns></returns>
 /// <created>ʆϒʅ, 12.01.2023</created>
-/// <changed>ʆϒʅ, 26.01.2023</changed>
+/// <changed>ʆϒʅ, 14.03.2023</changed>
 // ********************************************************************************
 
 #ifndef TERMINAL_H
@@ -40,8 +40,8 @@
 #define B_BLACK                 "\033[40m"
 #define B_RED                   "\033[41m"
 #define B_GREEN                 "\033[42m"
-#define B_BLUE                  "\033[43m"
-#define B_YELLOW                "\033[44m"
+#define B_YELLOW                "\033[43m"
+#define B_BLUE                  "\033[44m"
 #define B_PURPLE                "\033[45m"
 #define B_CYAN                  "\033[46m"
 #define B_WHITE                 "\033[47m"

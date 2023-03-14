@@ -3,10 +3,10 @@
 /// <summary>
 /// _1_Introduction.h
 /// ModernCplusPlus
-/// created by Mehrdad Solimanimajd on 27.11.2019
+/// created by Mehrdad Soleimanimajd on 27.11.2019
 /// </summary>
 /// <created>ʆϒʅ, 27.11.2019</created>
-/// <changed>ʆϒʅ, 23.01.2023</changed>
+/// <changed>ʆϒʅ, 14.03.2023</changed>
 // --------------------------------------------------------------------------------
 
 #ifndef _1_INTRODUCTION_H

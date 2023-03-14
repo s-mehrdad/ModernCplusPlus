@@ -4,11 +4,11 @@
 /// MacOs's terminal screen manipulations at runtime.
 /// Terminal.cpp
 /// ModernCplusPlus
-/// created by Mehrdad Solimanimajd on 12.01.2023
+/// created by Mehrdad Soleimanimajd on 12.01.2023
 /// </summary>
 /// <returns></returns>
 /// <created>ʆϒʅ, 12.01.2023</created>
-/// <changed>ʆϒʅ, 26.01.2023</changed>
+/// <changed>ʆϒʅ, 14.03.2023</changed>
 // ********************************************************************************
 
 #include "pch.h"
