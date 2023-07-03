@@ -33,6 +33,9 @@
     <ClInclude Include="_3_RuntimeEnhancements.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Terminal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />
@@ -40,6 +43,7 @@
     <None Include="LICENSE.md" />
     <None Include="README.md" />
     <None Include="ModernCplusPlus.aps" />
+    <None Include="ModernCplusPlus.rc.in" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_1_Introduction.cpp">
@@ -58,6 +62,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="_3_RuntimeEnhancements.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Terminal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

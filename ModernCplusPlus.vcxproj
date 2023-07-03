@@ -22,6 +22,7 @@
     <ClInclude Include="Console.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Terminal.h" />
     <ClInclude Include="_1_Introduction.h" />
     <ClInclude Include="_2_UsabilityEnhancements.h" />
     <ClInclude Include="_3_RuntimeEnhancements.h" />
@@ -31,6 +32,7 @@
     <None Include=".gitignore" />
     <None Include="LICENSE.md" />
     <None Include="ModernCplusPlus.aps" />
+    <None Include="ModernCplusPlus.rc.in" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +44,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Terminal.cpp" />
     <ClCompile Include="_1_Introduction.cpp" />
     <ClCompile Include="_2_UsabilityEnhancements.cpp" />
     <ClCompile Include="_3_RuntimeEnhancements.cpp" />

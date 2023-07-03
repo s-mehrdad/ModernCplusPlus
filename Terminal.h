@@ -1,5 +1,5 @@
 
-// ********************************************************************************
+// ===========================================================================
 /// <summary>
 /// MacOs's terminal screen manipualtions at runtime
 /// Terminal.h
@@ -8,8 +8,8 @@
 /// </summary>
 /// <returns></returns>
 /// <created>ʆϒʅ, 12.01.2023</created>
-/// <changed>ʆϒʅ, 14.03.2023</changed>
-// ********************************************************************************
+/// <changed>ʆϒʅ, 03.07.2023</changed>
+// ===========================================================================
 
 #ifndef TERMINAL_H
 #define TERMINAL_H
@@ -101,14 +101,14 @@ typedef struct CoordinateType
     short y;
 } coordinateType;
 
-void ConsoleFont ( const char32_t * fontName );
-void ConsoleFontSize ( const coordinateType fontSize );
-void ConsoleFontColour ( const int16_t fontColour );
-void ConsoleScreenPosition ( const coordinateType screenPosition );
-void ConsoleScreenSize ( const coordinateType ColRowCount );
+void ConsoleFont (const char32_t* fontName);
+void ConsoleFontSize (const coordinateType fontSize);
+void ConsoleFontColour (const int16_t fontColour);
+void ConsoleScreenPosition (const coordinateType screenPosition);
+void ConsoleScreenSize (const coordinateType ColRowCount);
 //void ConsoleScreenColour ( const COLORREF BGcolour );
-void ConsoleCursorState ( const bool CursorVisibility );
-void ColourCouter ( const std::string strCharacter, const std::string Colour, const bool Pick);
+void ConsoleCursorState (const bool CursorVisibility);
+void ColourCouter (const std::string strCharacter, const std::string Colour, const bool Pick);
 
 
 #endif

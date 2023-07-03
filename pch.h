@@ -1,13 +1,13 @@
 
-// --------------------------------------------------------------------------------
+// ===========================================================================
 /// <summary>
 /// pch.h
 /// ModernCplusPlus
 /// created by Mehrdad Soleimanimajd on 27.11.2019
 /// </summary>
 /// <created>ʆϒʅ, 27.11.2019</created>
-/// <changed>ʆϒʅ, 14.03.2023</changed>
-// --------------------------------------------------------------------------------
+/// <changed>ʆϒʅ, 03.07.2023</changed>
+// ===========================================================================
 
 #ifndef PCH_H
 #define PCH_H
@@ -31,7 +31,7 @@
 #include <cwchar> // C++ standard library to work with C wide strings
 #ifdef _WIN32
 #include <Windows.h> // Windows standard API's
-#elifdef __APPLE__
+#else ifdef __APPLE__
 #include <termios.h>
 #endif
 
